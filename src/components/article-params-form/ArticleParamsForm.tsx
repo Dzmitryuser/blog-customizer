@@ -1,3 +1,5 @@
+//src/components/article-params-form/ArticleParamsForm.tsx
+
 import { ArrowButton } from 'src/ui/arrow-button';
 import { Button } from 'src/ui/button';
 

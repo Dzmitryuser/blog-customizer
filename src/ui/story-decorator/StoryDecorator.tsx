@@ -1,3 +1,5 @@
+//src/ui/separator/StoryDecorator.tsx
+
 import { Decorator } from '@storybook/react';
 import styles from './StoryDecorator.module.scss';
 

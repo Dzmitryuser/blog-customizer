@@ -1,3 +1,5 @@
+//src/ui/select/hooks/useOutsideClickClose.tsx
+
 import { useEffect } from 'react';
 
 type UseOutsideClickClose = {

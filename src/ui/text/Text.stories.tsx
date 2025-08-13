@@ -1,3 +1,5 @@
+//src/ui/text/Text.stories.tsx
+
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Text } from './Text';

@@ -1,3 +1,5 @@
+//src/ui/radio-group/hooks/useEnterSubmit.tsx
+
 import { useEffect, useRef } from 'react';
 import { OptionType } from 'src/constants/articleProps';
 
