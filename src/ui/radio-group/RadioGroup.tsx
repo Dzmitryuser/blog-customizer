@@ -1,5 +1,3 @@
-//src/ui/radio-group/RadioGroup.tsx
-
 import { OptionType } from 'src/constants/articleProps';
 import { Text } from 'src/ui/text';
 import { Option } from './Option';

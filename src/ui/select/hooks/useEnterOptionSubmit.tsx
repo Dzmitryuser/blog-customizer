@@ -1,5 +1,3 @@
-//src/ui/select/hooks/useEnterOptionSubmit.tsx
-
 import { useEffect } from 'react';
 import { OptionType } from 'src/constants/articleProps';
 

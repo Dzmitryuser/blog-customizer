@@ -1,5 +1,3 @@
-//src/ui/button/Button.tsx
-
 import { Text } from 'src/ui/text';
 
 import styles from './Button.module.scss';

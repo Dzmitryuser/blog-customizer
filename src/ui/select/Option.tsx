@@ -1,5 +1,3 @@
-//src/ui/select/Option.tsx
-
 import { useRef } from 'react';
 import type { MouseEventHandler } from 'react';
 import clsx from 'clsx';

@@ -1,5 +1,3 @@
-//src/ui/text/Text.tsx
-
 import { ElementType, ReactNode } from 'react';
 import { clsx } from 'clsx';
 import { FontFamiliesClasses } from 'src/constants/articleProps';

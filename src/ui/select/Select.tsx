@@ -1,5 +1,3 @@
-//src/ui/select/Select.tsx
-
 import { useState, useRef } from 'react';
 import type { MouseEventHandler } from 'react';
 import clsx from 'clsx';
@@ -17,13 +15,21 @@ type SelectProps = {
 	selected: OptionType | null;
 	options: OptionType[];
 	placeholder?: string;
-	onChange?: (selected: OptionType) => void;
+	onChange: (selected: OptionType) => void;
 	onClose?: () => void;
 	title?: string;
 };
 
 export const Select = (props: SelectProps) => {
-	const { options, placeholder, selected, onChange, onClose, title } = props;
+	const {
+		options,
+		placeholder,
+		selected,
+		onChange,
+		onClose = () => {},
+		title,
+	} = props;
+
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const rootRef = useRef<HTMLDivElement>(null);
 	const placeholderRef = useRef<HTMLDivElement>(null);
@@ -32,8 +38,10 @@ export const Select = (props: SelectProps) => {
 	useOutsideClickClose({
 		isOpen,
 		rootRef,
-		onClose,
-		onChange: setIsOpen,
+		onClose: () => {
+			setIsOpen(false);
+			onClose();
+		},
 	});
 
 	useEnterSubmit({
@@ -43,20 +51,19 @@ export const Select = (props: SelectProps) => {
 
 	const handleOptionClick = (option: OptionType) => {
 		setIsOpen(false);
-		onChange?.(option);
+		onChange(option);
 	};
+
 	const handlePlaceHolderClick: MouseEventHandler<HTMLDivElement> = () => {
-		setIsOpen((isOpen) => !isOpen);
+		setIsOpen((prev) => !prev);
 	};
 
 	return (
 		<div className={styles.container}>
 			{title && (
-				<>
-					<Text size={12} weight={800} uppercase>
-						{title}
-					</Text>
-				</>
+				<Text size={12} weight={800} uppercase>
+					{title}
+				</Text>
 			)}
 			<div
 				className={styles.selectWrapper}
@@ -69,7 +76,6 @@ export const Select = (props: SelectProps) => {
 						styles.placeholder,
 						(styles as Record<string, string>)[optionClassName]
 					)}
-					data-status={status}
 					data-selected={!!selected?.value}
 					onClick={handlePlaceHolderClick}
 					role='button'

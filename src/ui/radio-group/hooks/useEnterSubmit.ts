@@ -1,5 +1,3 @@
-//src/ui/radio-group/hooks/useEnterSubmit.tsx
-
 import { useEffect, useRef } from 'react';
 import { OptionType } from 'src/constants/articleProps';
 
@@ -24,7 +22,6 @@ export const useEnterSubmit = ({ onChange, option }: UseEnterSubmit) => {
 
 		optionHtml.addEventListener('keydown', handleEnterKeyDown);
 
-		// не забываем удалять листенеры, при размонтировании компонента
 		return () => {
 			optionHtml.removeEventListener('keydown', handleEnterKeyDown);
 		};
