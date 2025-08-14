@@ -13,7 +13,7 @@ import {
 	ArticleStateType,
 } from 'src/constants/articleProps';
 import { useOutsideClickClose } from 'src/ui/select/hooks/useOutsideClickClose';
-
+import { Text } from 'src/ui/text';
 import styles from './ArticleParamsForm.module.scss';
 
 type ArticleParamsFormProps = {
@@ -54,6 +54,7 @@ export const ArticleParamsForm = ({
 	return (
 		<>
 			<ArrowButton isOpen={isOpen} onClick={onToggle} />
+
 			<div
 				className={clsx(styles.container, { [styles.container_open]: isOpen })}
 				ref={formRef}>
@@ -61,6 +62,10 @@ export const ArticleParamsForm = ({
 					className={styles.form}
 					onSubmit={handleSubmit}
 					onReset={handleReset}>
+					<h1></h1>
+					<Text size={31} weight={800} uppercase dynamicLite>
+						Задайте параметры
+					</Text>
 					<Select
 						title='Шрифт'
 						selected={formStyles.fontFamilyOption}
@@ -70,7 +75,7 @@ export const ArticleParamsForm = ({
 						}
 						onClose={() => {}}
 					/>
-					<Separator />
+
 					<Select
 						title='Размер шрифта'
 						selected={formStyles.fontSizeOption}
@@ -80,7 +85,7 @@ export const ArticleParamsForm = ({
 						}
 						onClose={() => {}}
 					/>
-					<Separator />
+
 					<Select
 						title='Цвет шрифта'
 						selected={formStyles.fontColor}
@@ -100,7 +105,7 @@ export const ArticleParamsForm = ({
 						}
 						onClose={() => {}}
 					/>
-					<Separator />
+
 					<Select
 						title='Ширина контента'
 						selected={formStyles.contentWidth}
