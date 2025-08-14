@@ -6,6 +6,10 @@
 	overflow: scroll;
 	transform: translate(-616px);
 	transition: transform 0.5s ease;
+
+	/* Добавляем эти свойства для скрытия скроллбаров */
+	scrollbar-width: none; /* Для Firefox */
+	-ms-overflow-style: none; /* Для IE и Edge */
 }
 
 .container_open {
@@ -18,6 +22,7 @@
 	flex-direction: column;
 	box-sizing: border-box;
 	width: 616px;
+	max-width: 100%;
 	height: auto;
 	min-height: 100%;
 	padding: 50px 31px;
