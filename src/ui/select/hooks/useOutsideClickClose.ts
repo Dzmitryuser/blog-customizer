@@ -2,30 +2,29 @@ import { useEffect } from 'react';
 
 type UseOutsideClickClose = {
 	isOpen: boolean;
-	onChange: (newValue: boolean) => void;
-	onClose?: () => void;
-	rootRef: React.RefObject<HTMLDivElement>;
+	rootRef: React.RefObject<HTMLElement>;
+	onClose: () => void;
 };
 
 export const useOutsideClickClose = ({
 	isOpen,
 	rootRef,
 	onClose,
-	onChange,
 }: UseOutsideClickClose) => {
 	useEffect(() => {
 		const handleClick = (event: MouseEvent) => {
 			const { target } = event;
 			if (target instanceof Node && !rootRef.current?.contains(target)) {
-				isOpen && onClose?.();
-				onChange?.(false);
+				onClose();
 			}
 		};
 
-		window.addEventListener('mousedown', handleClick);
+		if (isOpen) {
+			window.addEventListener('mousedown', handleClick);
+		}
 
 		return () => {
 			window.removeEventListener('mousedown', handleClick);
 		};
-	}, [onClose, onChange, isOpen]);
+	}, [isOpen, onClose]);
 };
