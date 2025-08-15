@@ -4,6 +4,7 @@ import { ArrowButton } from 'src/ui/arrow-button';
 import { Button } from 'src/ui/button';
 import { Select } from 'src/ui/select';
 import { Separator } from 'src/ui/separator';
+import { RadioGroup } from 'src/ui/radio-group/RadioGroup';
 import {
 	fontFamilyOptions,
 	fontSizeOptions,
@@ -62,10 +63,10 @@ export const ArticleParamsForm = ({
 					className={styles.form}
 					onSubmit={handleSubmit}
 					onReset={handleReset}>
-					<h1></h1>
-					<Text size={31} weight={800} uppercase dynamicLite>
+					<Text size={31} weight={800} uppercase>
 						Задайте параметры
 					</Text>
+
 					<Select
 						title='Шрифт'
 						selected={formStyles.fontFamilyOption}
@@ -76,14 +77,14 @@ export const ArticleParamsForm = ({
 						onClose={() => {}}
 					/>
 
-					<Select
-						title='Размер шрифта'
-						selected={formStyles.fontSizeOption}
+					<RadioGroup
+						name='Размер шрифта'
 						options={fontSizeOptions}
+						selected={formStyles.fontSizeOption}
+						title='Размер шрифта'
 						onChange={(option) =>
 							onStyleChange({ ...formStyles, fontSizeOption: option })
 						}
-						onClose={() => {}}
 					/>
 
 					<Select
